@@ -12,12 +12,14 @@ public class CustomerTest {
     public void shouldReturnCorrectInfoWhenDeserializeUsingJsonCreator()
             throws IOException {
 
-        String json = "{\"id\":\"1\",\"surname\":\"Chea\",\"firstName\":\"Makera\",\"postcode\":\"JK21 4PG\"}";
+        String json = "{\"id\":1,\"surname\":\"Chea\",\"firstName\":\"Makera\",\"postcode\":\"JK21 4PG\"}";
+        Integer id = 1;
 
         Customer customer = new ObjectMapper()
                 .readerFor(Customer.class)
                 .readValue(json);
-        Assert.assertEquals("1", customer.getId());
+
+        Assert.assertEquals(id, customer.getId());
         Assert.assertEquals("Chea", customer.getSurname());
         Assert.assertEquals("Makera", customer.getFirstName());
         Assert.assertEquals("JK21 4PG", customer.getPostcode());

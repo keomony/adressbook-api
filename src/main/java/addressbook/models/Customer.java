@@ -26,16 +26,32 @@ public class Customer {
         this.postcode = postcode;
     }
 
+    public Integer setId(Integer id){
+        return this.id = id;
+    }
+
     public Integer getId(){
         return id;
+    }
+
+    public String setSurname(String surname){
+        return this.surname = surname;
     }
 
     public String getSurname(){
         return surname;
     }
 
+    public String setFirstName(String firstName){
+        return this.firstName = firstName;
+    }
+
     public String getFirstName(){
         return firstName;
+    }
+
+    public String setPostcode(String postcode){
+        return this.postcode = postcode;
     }
 
     public String getPostcode(){

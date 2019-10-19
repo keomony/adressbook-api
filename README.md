@@ -1,5 +1,5 @@
 This back-end is for an address book API that has the ability to search a list of customers by their surname. 
-qWhen a customer is selected, their full contact details are returned as JSON.
+When a customer is selected, their full contact details are returned as JSON.
 
   ### GET /customers 
   Return : all customers
@@ -55,4 +55,49 @@ qWhen a customer is selected, their full contact details are returned as JSON.
   Delete customer with specific id ex. id = 1
         
         {}
-        
+  
+  
+  ## Setup
+  
+  **1. Clone the application**
+  
+  ```bash
+  https://github.com/keomony/adressbook-api.git
+  ```
+  
+  **2. Create Mysql database**
+  ```bash
+  create database address_book_db
+  ```
+  
+  **3. Change mysql username and password as per your installation**
+  
+  + open `src/main/resources/application.properties`
+  
+  + change `spring.datasource.username` and `spring.datasource.password`** as per your mysql installation
+  
+  ** remove `spring.datasource.password` if you don't have any password 
+  
+  **4. Build and run the app using gradle**
+  
+  ```bash
+  ./gradlew build
+  ./gradlew bootRun
+  
+  ```
+  
+  The app will start running at <http://localhost:8080>.
+  
+  ## Explore Rest APIs
+  
+  The app defines following CRUD APIs.
+  
+      GET /customers
+      
+      POST /customers
+      
+      GET /customers/{id}
+      
+      PUT /customers/{id}
+      
+      DELETE /customers/{id}

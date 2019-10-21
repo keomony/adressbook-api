@@ -101,3 +101,12 @@ When a customer is selected, their full contact details are returned as JSON.
       PUT /customers/{id}
       
       DELETE /customers/{id}
+      
+  ## set up mysql in mac
+  
+  ```bash 
+    brew install mysql
+    brew services start mysql
+    mysql -uroot
+    > use database_name
+```

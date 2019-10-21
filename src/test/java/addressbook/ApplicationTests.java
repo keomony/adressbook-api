@@ -59,6 +59,13 @@ public class ApplicationTests {
 
     }
 
+    @Test
+    public void shouldBeAbleToReturnAllCustomers(){
+        webClient.get().uri("/customers")
+                .exchange()
+                .expectStatus().isOk();
+    }
+
     private String extractIdFromResponse(WebTestClient.ResponseSpec response) throws JSONException {
         final byte[] responseBody = response.expectBody().returnResult().getResponseBodyContent();
         final JSONObject responseBodyJson = new JSONObject(new String(responseBody));

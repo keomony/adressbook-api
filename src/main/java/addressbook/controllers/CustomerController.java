@@ -7,6 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.List;
 
 @RestController
 public class CustomerController {
@@ -27,6 +28,11 @@ public class CustomerController {
                         .findById(id)
                         .orElseThrow(() -> new Exception("Customer not found on :: " + id));
         return ResponseEntity.ok().body(customer);
+    }
+
+    @GetMapping("/customers")
+    public List<Customer> getAllCustomers() {
+        return customerRepository.findAll();
     }
 
 }

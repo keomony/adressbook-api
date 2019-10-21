@@ -31,8 +31,12 @@ public class CustomerController {
     }
 
     @GetMapping("/customers")
-    public List<Customer> getAllCustomers() {
-        return customerRepository.findAll();
+    public List<Customer> getAllCustomers(@RequestParam(required = false) String surname) {
+        if (surname == null) {
+            return customerRepository.findAll();
+        }
+        return customerRepository.findBySurnameContaining(surname).toList();
+
     }
 
 }

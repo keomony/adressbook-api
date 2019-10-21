@@ -24,7 +24,6 @@ public class ApplicationTests {
 
     @Before
     public void setUp() {
-
         webClient = WebTestClient.bindToServer()
                 .baseUrl("http://localhost:8080")
                 .defaultHeader(HttpHeaders.CONTENT_TYPE, "application/json")
@@ -42,7 +41,6 @@ public class ApplicationTests {
 
     @Test
     public void shouldBeAbleToGetACustomerDetailById() throws JSONException {
-
         final WebTestClient.ResponseSpec response = webClient.post().uri("/customers")
                 .bodyValue(json)
                 .exchange();
@@ -60,8 +58,8 @@ public class ApplicationTests {
     }
 
     @Test
-    public void shouldBeAbleToReturnAllCustomers(){
-        webClient.get().uri("/customers")
+    public void shouldBeAbleToSearchBySurname(){
+        webClient.get().uri("/customers?surname=Chea")
                 .exchange()
                 .expectStatus().isOk();
     }
